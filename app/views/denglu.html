@@ -1,0 +1,64 @@
+<!--<div id="header">
+	<div class="header_title">
+		<span class="title_con">学工系统</span>
+	</div>
+</div>
+
+<div id="content">
+	<center>
+		<div class="con">
+		<div class="con_title">
+			<span class="con_title_sp">欢迎登录学工系统</span>
+		</div>
+		<div class="con_panel">
+			<div class="con_input">
+				<span>用户名：</span><input type="text" ng-model="updata.username" ng-minlength="6" ng-maxlength="12" placeholder="用户名" ng-pattern="/^[a-zA-z][a-zA-Z0-9_]{2,12}$/"/>
+                <p class="sm">由首位是字母的6-12位字符组成</p>
+			</div>
+			<div class="con_input">
+				<span>密&nbsp;&nbsp;&nbsp;&nbsp;码：</span><input type="password" ng-model="updata.password" placeholder="密码" ng-minlength="6" ng-maxlength="18"/>
+                <p class="sm">由6-18位字符组成</p>
+			</div>
+			<div class="con_select">
+				<input type="checkbox" name="t1" value="学生" ng-model="checkbox"/>七天免登陆
+			</div>
+			<input type="submit" value="登   录" class="submit-btn" ng-click="add()"/>
+            <input type="button" value="用户注册" class="submit-btn" ui-sref="zc"/>
+		</div>
+	</div>
+	</center>
+</div>-->
+
+<div>
+	<div class='header'>
+    <b>Somenote</b>
+    <p>请登录</p>
+  </div>
+<form>
+  <div class="form-group">
+    <div>
+      <input type="text" class="form-control" placeholder="User" ng-model='updata.username'>
+    </div>
+  </div>
+  <div class="form-group">
+    <div>
+      <input type="password" class="form-control" placeholder="Password" ng-model='updata.password'>
+    </div>
+  </div>
+  <div class="form-group">
+    <div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" ng-model='check'> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <div>
+      <button class='login' ng-click='add()'>log in<button>
+      <button class='signin' ui-sref='zc'>Sign in<button>
+    </div>
+  </div>
+</form>
+</div>

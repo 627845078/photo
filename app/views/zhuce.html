@@ -1,0 +1,32 @@
+<!--<div>
+	<h1>用户注册</h1>
+	<form name="myform">
+		<p>用户名：<input type="text" ng-model="updata.username" ng-minlength="6" ng-maxlength="12" ng-pattern="/^[a-zA-Z]{1}\w{2,12}/"></p>
+		<p>密  码：<input type="password" ng-model="updata.password"></p>
+        <button ng-click="ad()"  ng-disabled="myform.$invalid">注册</button>
+	</form>
+</div>-->
+
+<div>
+	<div class='header'>
+    <b>Somenote</b>
+    <p>请注册</p>
+  </div>
+<form>
+  <div class="form-group">
+    <div>
+      <input type="text" class="form-control" placeholder="User" ng-model='updata.username'>
+    </div>
+  </div>
+  <div class="form-group">
+    <div>
+      <input type="password" class="form-control" placeholder="Password" ng-model='updata.password'>
+    </div>
+  </div>
+  <div class="form-group">
+    <div>
+      <button class='signin' ng-click="ad()">Sign in</button>
+    </div>
+  </div>
+</form>
+</div>
