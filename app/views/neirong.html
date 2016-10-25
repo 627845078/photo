@@ -1,0 +1,26 @@
+<div class="panel panel-info" ng-repeat="xx in ac" >
+  <div class="panel-heading">
+    <h3 class="panel-title">{{xx.title}}<span style="float:right;" >
+    	<button ng-click="sc(xx)" class="btn-info glyphicon glyphicon-trash" style="border-radius:4px"></button>
+  		<button ui-sref="tj.gai({uid:xx.id})" class="btn-info glyphicon glyphicon-edit" style="border-radius:4px"></button>
+		</span>
+    </h3>
+  </div>
+  <div class="panel-body" ui-sref="tj.gai">
+     <div class="media">
+      <a class="media-left media-middle" href="#">
+        <img data-src="..." alt="...">
+      </a>
+      <div class="media-body">
+        <h4 class="media-heading">{{xx.id}}</h4>
+        {{xx.content}}
+      </div>
+    </div>
+  </div>
+</div>
+<nav style="text-align:center;">
+  <ul class="pagination" style="text-align:center;width:60%;">
+    <li ng-click="acc1()" style="float:left;"><a href="#">&laquo;</a></li>
+    <li ng-click="acc()" style="float:right;"><a href="#">&raquo;</a></li>
+  </ul>
+</nav>

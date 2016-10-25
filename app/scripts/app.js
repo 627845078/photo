@@ -18,10 +18,24 @@ angular
 			url:"/zc",
 			templateUrl:"views/zhuce.html",
 			controller:"can"
-		})/*.state("index.ul",{
-			url:"/ul?name&id",
-			templateUrl:"directive-con.html",
-			controller:"con"
-		})*/
+		}).state("nav",{
+			url:"/nav",
+			templateUrl:"views/nav.html",
+			controller:"nav"
+		}).state("nav.cont",{
+			url:"/cont",
+			templateUrl:"views/neirong.html",
+			controller:"cont"
+		}).state("tj",{
+			url:"/add",
+			templateUrl:"views/xiu.html",
+			controller:"adds"
+		}).state("tj.jia",{
+			url:"/jia",
+			templateUrl:"views/jia.html",
+		}).state("tj.gai",{
+			url:"/gai?uid",
+			templateUrl:"views/gai.html"
+		})
 		$urlRouterProvider.when("","/dengl")
 	})
