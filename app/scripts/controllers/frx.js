@@ -64,7 +64,7 @@ angular.module('dengluApp').controller("cen",['$scope','$http','servers','$cooki
 	$scope.tc=function(){
 		$cookieStore.remove('abc')
 	}
-}]).controller("adds",['$scope','$http','servers','$window','$location','$state',function ($scope,$http,servers,$window,$location,$state) {
+}]).controller("adds",['$scope','$http','servers','$window','$location','$state','$stateParams',function ($scope,$http,servers,$window,$location,$state,$stateParams) {
 	$scope.addr=function(){
 		if($scope.undate!=null){
 			$http({
@@ -79,21 +79,28 @@ angular.module('dengluApp').controller("cen",['$scope','$http','servers','$cooki
 	$scope.ade=function(){
 		$window.history.back();
 	}
-	var Id=$location.url().split('=')[1];
-	$scope.sc=function(){
+}]).controller("addss",['$scope','$http','servers','$window','$location','$state','$stateParams',function ($scope,$http,servers,$window,$location,$state,$stateParams) {
+	$scope.ade=function(){
+		$window.history.back();
+	}
+	$scope.undates=$stateParams
+	
+	//var Id=$location.url().split('=')[1]
+	$scope.sc=function(e){
 		$http({
-			url:servers+"/item/"+Id,
+			url:servers+"/item/"+e.uid,
 			method:"delete"
-		}).success(function(){
+		}).success(function(a){
+			
 			$state.go("nav.cont")
 		})
 	}
-	$scope.addrd=function(){
-		if($scope.undate!=null){
+	$scope.addrd=function(e){
+		if($scope.undates!=null){
 			$http({
-				url:servers+"/item/"+Id,
+				url:servers+"/item/"+e.uid,
 				method:"PUT",
-				data:$scope.undate
+				data:$scope.undates
 			}).success(function(e){
 				$state.go("nav.cont")
 			})

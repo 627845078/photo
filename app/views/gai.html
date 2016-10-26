@@ -1,5 +1,16 @@
 <ul class="nav nav-pills" role="tablist" style="padding:2% 5%;background:#5BC0DE;">
   <li role="presentation" class="active"><button type="button" class="btn btn-info glyphicon glyphicon-chevron-left" ng-click="ade()" ></button></li>
-  <li role="presentation" style="float:right;"><button type="button" ng-click="sc()" class="btn btn-info glyphicon glyphicon-trash" ></button></li>
-  <li role="presentation" style="float:right;"><button type="button" ng-click="addrd()" class="btn btn-info glyphicon glyphicon-edit" ></button></li>
+  <li role="presentation" style="float:right;"><button type="button" ng-click="sc(undates)" class="btn btn-info glyphicon glyphicon-trash" ></button></li>
+  <li role="presentation" style="float:right;"><button type="button" ng-click="addrd(undates)" class="btn btn-info glyphicon glyphicon-edit" ></button></li>
 </ul>
+<div class="media panel-heading">
+  <div class="media-body">
+    <h4 class="media-heading" style="margin-top:5%;">标题：<input ng-model="undates.title" type="text" class="form-control" placeholder="Username" style="margin-top:5%;"></h4>
+    <h4 class="media-heading" style="margin-top:5%;">内容：<form role="form"> 
+          <div class="form-group" style="margin-top:5%;" > 
+            <textarea class="form-control" rows="5" ng-model="undates.content"></textarea> 
+          </div> 
+        </form>
+	</h4>
+  </div>
+</div>

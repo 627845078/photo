@@ -26,16 +26,14 @@ angular
 			url:"/cont",
 			templateUrl:"views/neirong.html",
 			controller:"cont"
-		}).state("tj",{
-			url:"/add",
-			templateUrl:"views/xiu.html",
-			controller:"adds"
-		}).state("tj.jia",{
+		}).state("jia",{
 			url:"/jia",
 			templateUrl:"views/jia.html",
-		}).state("tj.gai",{
-			url:"/gai?uid",
-			templateUrl:"views/gai.html"
+			controller:"adds"
+		}).state("gai",{
+			url:"/gai?uid&title&content",
+			templateUrl:"views/gai.html",
+			controller:"addss"
 		})
 		$urlRouterProvider.when("","/dengl")
 	})
