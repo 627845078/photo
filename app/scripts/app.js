@@ -31,7 +31,7 @@ angular
 			templateUrl:"views/jia.html",
 			controller:"adds"
 		}).state("gai",{
-			url:"/gai?uid&title&content",
+			url:"/gai?id&title&content",
 			templateUrl:"views/gai.html",
 			controller:"addss"
 		})

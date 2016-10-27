@@ -14,6 +14,7 @@ angular.module('dengluApp').controller("cen",['$scope','$http','servers','$cooki
 		}).success(function(e){
 			if($scope.checkbox==true){
 				$cookieStore.put('abc',$scope.updata,{expires:new Date(new Date().getTime()+6)})
+				$cookieStore.put('bcd',e)
 			}
 			$state.go("nav.cont")
 		})
@@ -35,7 +36,7 @@ angular.module('dengluApp').controller("cen",['$scope','$http','servers','$cooki
 	$http({
 			url:servers+"/item",
 			method:"GET",
-			params:{'$skip':aa,'$limit':10}
+			params:{'uid':$cookieStore.get('bcd').uid,'$skip':aa,'$limit':10}
 		}).success(function(e){
 			$scope.ac=e
 		})
@@ -64,7 +65,8 @@ angular.module('dengluApp').controller("cen",['$scope','$http','servers','$cooki
 	$scope.tc=function(){
 		$cookieStore.remove('abc')
 	}
-}]).controller("adds",['$scope','$http','servers','$window','$location','$state','$stateParams',function ($scope,$http,servers,$window,$location,$state,$stateParams) {
+}]).controller("adds",['$scope','$http','servers','$window','$cookieStore','$state','$stateParams',function ($scope,$http,servers,$window,$cookieStore,$state,$stateParams) {
+	$scope.undate={'uid':$cookieStore.get('bcd').uid}
 	$scope.addr=function(){
 		if($scope.undate!=null){
 			$http({
@@ -79,16 +81,14 @@ angular.module('dengluApp').controller("cen",['$scope','$http','servers','$cooki
 	$scope.ade=function(){
 		$window.history.back();
 	}
-}]).controller("addss",['$scope','$http','servers','$window','$location','$state','$stateParams',function ($scope,$http,servers,$window,$location,$state,$stateParams) {
+}]).controller("addss",['$scope','$http','servers','$window','$cookieStore','$state','$stateParams',function ($scope,$http,servers,$window,$cookieStore,$state,$stateParams) {
 	$scope.ade=function(){
 		$window.history.back();
 	}
 	$scope.undates=$stateParams
-	
-	//var Id=$location.url().split('=')[1]
 	$scope.sc=function(e){
 		$http({
-			url:servers+"/item/"+e.uid,
+			url:servers+"/item/"+e.id,
 			method:"delete"
 		}).success(function(a){
 			
@@ -98,7 +98,7 @@ angular.module('dengluApp').controller("cen",['$scope','$http','servers','$cooki
 	$scope.addrd=function(e){
 		if($scope.undates!=null){
 			$http({
-				url:servers+"/item/"+e.uid,
+				url:servers+"/item/"+e.id,
 				method:"PUT",
 				data:$scope.undates
 			}).success(function(e){
