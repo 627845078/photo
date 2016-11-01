@@ -1,6 +1,6 @@
 <div class="panel panel-info" ng-repeat="xx in ac" >
   <div class="panel-heading">
-    <h3 class="panel-title">{{xx.title}}<span style="float:right;" >
+    <h3 class="panel-title">{{xx.title}}  <span ng-repeat="x in xx.tag" class="label label-info">{{x}}</span><span style="float:right;" >
     	<button ng-click="sc(xx)" class="btn-info glyphicon glyphicon-trash" style="border-radius:4px"></button>
   		<button ui-sref="gai({id:xx.id,title:xx.title,content:xx.content})" class="btn-info glyphicon glyphicon-edit" style="border-radius:4px"></button>
 		</span>

@@ -66,15 +66,30 @@ angular.module('dengluApp').controller("cen",['$scope','$http','servers','$cooki
 		$cookieStore.remove('abc')
 	}
 }]).controller("adds",['$scope','$http','servers','$window','$cookieStore','$state','$stateParams',function ($scope,$http,servers,$window,$cookieStore,$state,$stateParams) {
-	$scope.undate={'uid':$cookieStore.get('bcd').uid}
+	var adc=[];
+	$('.tag').find('span').click(function(){
+		if($(this).attr('class')=='label label-info'){
+			$(this).attr('class','label label-default')
+		}else{
+			$(this).attr('class','label label-info')
+		}
+		adc.push($(this).val())	
+	})
+
 	$scope.addr=function(){
 		if($scope.undate!=null){
 			$http({
 				url:servers+"/item",
 				method:"POST",
-				data:$scope.undate
+				data:{'title':$scope.title,'content':$scope.content,'uid':$cookieStore.get('bcd').uid,'tag':adc}
 			}).success(function(e){
-				$state.go("nav.cont")
+				$http({
+					url:servers+"/item",
+					method:"POST",
+					data:{'tid':e.id,'tag':adc}
+				}).success(function(e){
+					$state.go("nav.cont")
+				})
 			})
 		}
 	}
